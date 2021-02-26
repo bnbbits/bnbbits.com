@@ -676,7 +676,7 @@ async function updatePic() {
     const chainId = await ethereum.request({
         method: 'eth_chainId'
     });
-    if (chainId == "0x61") {
+    if (chainId == "0x38") {
         index = await getCurIndex();
     }
     loadPicAtIndex(index);
@@ -697,7 +697,7 @@ ETHAppDeploy = {
             const chainId = await ethereum.request({
                 method: 'eth_chainId'
             });
-            if (chainId !== '0x61') {
+            if (chainId !== '0x38') {
                 alert("You are not on the Binance Smart Chain Network, please change Metamask to point to a BSC endpoint");
                 return;
             }
