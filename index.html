@@ -1,0 +1,64 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./src/jquery/jquery-ui.css" />
+    <link rel="stylesheet" href="./src/styles.css" />
+    <script type="text/javascript" src="./src/jquery/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="./src/jquery/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+    <script src="./src/script.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="./src/fav/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./src/fav/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./src/fav/favicon-16x16.png" />
+    <link rel="manifest" href="./src/fav/site.webmanifest" />
+    <link rel="shortcut icon" href="./src/fav/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="msapplication-config" content="./src/fav/browserconfig.xml" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>BNBBits - Collectable 8Bit Character NFTs on Binance Smart Chain</title>
+    <meta name="title" content="BNBBits - Collectable 8Bit Character NFTs on Binance Smart Chain" />
+    <meta name="description" content="BNBBits, the collectable 8bit character NFTs on Binance Smart Chain! With only 2,500 being produced, users will discover rarity traits and other characteristics of 8bits NFTS!" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://www.bnbbits.com/" />
+    <meta property="og:title" content="BNBBits - Collectable 8Bit Character NFTs on Binance Smart Chain" />
+    <meta property="og:description" content="BNBBits, the collectable 8bit character NFTs on Binance Smart Chain! With only 2,500 being produced, users will discover rarity traits and other characteristics of 8bits NFTS!" />
+    <meta property="og:image" content="./src/logo_black.png" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="http://www.bnbbits.com/" />
+    <meta property="twitter:title" content="BNBBits - Collectable 8Bit Character NFTs on Binance Smart Chain" />
+    <meta property="twitter:description" content="BNBBits, the collectable 8bit character NFTs on Binance Smart Chain! With only 2,500 being produced, users will discover rarity traits and other characteristics of 8bits NFTS!" />
+    <meta property="twitter:image" content="./src/logo_black.png" />
+</head>
+
+<body onload="updatePic()" style="text-align: center;">
+    <img id="logo" src="./src/logo.png" style="margin-top: -1rem;" />
+    <br />
+    <br />
+    <div class="container">
+        <div id="col2" class="col-sm-6 other" style="margin-right: auto; margin-left: auto; display: contents;">
+            <div style="margin-right: auto; margin-left: auto; margin-bottom: 0.6rem; margin-top: -4px;" id="sprite-image"></div>
+            <span id="bnbbit">NUMBER</span>
+            <br />
+            <br />
+            <br />
+            <span id="number"></span>
+            <br />
+            <br />
+            <button onclick="startProcess()" id="buyBtn">
+                BUY NFT
+            </button>
+            <br />
+            <br />
+            <br />
+            <br />
+            <span id="amountLeft">BITS LEFT:</span>
+            <br />
+            <br />
+            <span id="totalSupply">TOTAL SUPPLY: 2500</span>
+        </div>
+    </div>
+
+    <footer>
+        <a href="https://t.me/bnbbits"><img style="height: 45px;" src="./src/discord.png" /></a> &nbsp;&nbsp;
+        <a href="https://twitter.com/BNB_Bits"><img style="height: 40px;" src="./src/twitter.png" /></a>
+    </footer>
+</body>
