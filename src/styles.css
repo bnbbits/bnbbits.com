@@ -22,7 +22,7 @@
      background-color: transparent;
      color: #f3a619;
      font-family: '8bit';
-     margin-top: 3rem;
+     margin-top: 1rem;
 }
  #image{
      image-rendering: pixelated;
@@ -63,7 +63,7 @@
      margin-top:1rem;
 }
  footer{
-     margin-top:10rem;
+     margin-top:4rem;
 }
  #footerimg{
      height:50px;
