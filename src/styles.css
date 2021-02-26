@@ -1,6 +1,6 @@
  @font-face {
      font-family: '8bit';
-     src: URL('./8bit.ttf') format('truetype');
+     src: URL('./src/8bit.ttf') format('truetype');
 }
  body{
      text-align:center;
