@@ -24,6 +24,9 @@
      font-family: '8bit';
      margin-top: 1rem;
 }
+#viewBtn {
+     color:black;
+}
  #image{
      image-rendering: pixelated;
      height: 21px;
@@ -35,6 +38,10 @@
 }
  #number{
      font-size: 40px;
+}
+.ant-input {
+     color:black;
+     text-align: center;
 }
  .col-sm-6 {
 }
