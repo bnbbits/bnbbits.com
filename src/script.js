@@ -659,7 +659,7 @@ async function getCurIndex() {
 }
 
 function loadPicAtIndex(index) {
-    var newUrl = "url('https://github.com/bnbbits/BNBBits/blob/main/bnbbits/BNBBIT-" + index.toString() + ".png?raw=true')"
+    var newUrl = "url('https://github.com/bnbbits/BNBBits_images/blob/master/BNBBIT-" + index.toString().padStart(4, '0') + ".png?raw=true')"
     console.log(newUrl)
 
     const totalBits = 2500;
@@ -692,7 +692,7 @@ async function bitViewer() {
         alert("Please input a valid BNB Bits ID!");
         return;
     }
-    var newUrl = "url('https://github.com/bnbbits/BNBBits/blob/main/bnbbits/BNBBIT-" + inputVal.toString() + ".png?raw=true')"
+    var newUrl = "url('https://github.com/bnbbits/BNBBits/blob/main/bnbbits/BNBBIT-" + inputVal.toString().padStart(4, '0') + ".png?raw=true')"
     document.getElementById("sprite-image").style.background = newUrl;
     document.getElementById("sprite-image").style.backgroundPositionX = "0px";
     document.getElementById("sprite-image").style.backgroundPositionY = "-76px";
