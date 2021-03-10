@@ -1,203 +1,7 @@
-    const abi = [
-    {
-        "constant": false,
-        "inputs": [
-            {
-                "name": "punkIndex",
-                "type": "uint256"
-            },
-            {
-                "name": "minPrice",
-                "type": "uint256"
-            }
-        ],
-        "name": "acceptBidForPunk",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "constant": false,
-        "inputs": [],
-        "name": "allInitialOwnersAssigned",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "constant": false,
-        "inputs": [
-            {
-                "name": "punkIndex",
-                "type": "uint256"
-            }
-        ],
-        "name": "buyPunk",
-        "outputs": [],
-        "payable": true,
-        "stateMutability": "payable",
-        "type": "function"
-    },
-    {
-        "constant": false,
-        "inputs": [
-            {
-                "name": "punkIndex",
-                "type": "uint256"
-            }
-        ],
-        "name": "enterBidForPunk",
-        "outputs": [],
-        "payable": true,
-        "stateMutability": "payable",
-        "type": "function"
-    },
-    {
-        "constant": false,
-        "inputs": [],
-        "name": "getPunk",
-        "outputs": [],
-        "payable": true,
-        "stateMutability": "payable",
-        "type": "function"
-    },
-    {
-        "constant": false,
-        "inputs": [
-            {
-                "name": "punkIndex",
-                "type": "uint256"
-            },
-            {
-                "name": "minSalePriceInWei",
-                "type": "uint256"
-            }
-        ],
-        "name": "offerPunkForSale",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "constant": false,
-        "inputs": [
-            {
-                "name": "punkIndex",
-                "type": "uint256"
-            },
-            {
-                "name": "minSalePriceInWei",
-                "type": "uint256"
-            },
-            {
-                "name": "toAddress",
-                "type": "address"
-            }
-        ],
-        "name": "offerPunkForSaleToAddress",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "constant": false,
-        "inputs": [
-            {
-                "name": "punkIndex",
-                "type": "uint256"
-            }
-        ],
-        "name": "punkNoLongerForSale",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "constant": false,
-        "inputs": [
-            {
-                "name": "to",
-                "type": "address"
-            },
-            {
-                "name": "punkIndex",
-                "type": "uint256"
-            }
-        ],
-        "name": "setInitialOwner",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "constant": false,
-        "inputs": [
-            {
-                "name": "addresses",
-                "type": "address[]"
-            },
-            {
-                "name": "indices",
-                "type": "uint256[]"
-            }
-        ],
-        "name": "setInitialOwners",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "constant": false,
-        "inputs": [
-            {
-                "name": "to",
-                "type": "address"
-            },
-            {
-                "name": "punkIndex",
-                "type": "uint256"
-            }
-        ],
-        "name": "transferPunk",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "constant": false,
-        "inputs": [],
-        "name": "withdraw",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "constant": false,
-        "inputs": [
-            {
-                "name": "punkIndex",
-                "type": "uint256"
-            }
-        ],
-        "name": "withdrawBidForPunk",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
+const abi = [
     {
         "inputs": [],
-        "payable": true,
-        "stateMutability": "payable",
+        "stateMutability": "nonpayable",
         "type": "constructor"
     },
     {
@@ -205,16 +9,24 @@
         "inputs": [
             {
                 "indexed": true,
-                "name": "to",
+                "internalType": "address",
+                "name": "owner",
                 "type": "address"
             },
             {
-                "indexed": false,
-                "name": "punkIndex",
+                "indexed": true,
+                "internalType": "address",
+                "name": "approved",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "uint256",
+                "name": "tokenId",
                 "type": "uint256"
             }
         ],
-        "name": "Assign",
+        "name": "Approval",
         "type": "event"
     },
     {
@@ -222,17 +34,64 @@
         "inputs": [
             {
                 "indexed": true,
+                "internalType": "address",
+                "name": "owner",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "operator",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "bool",
+                "name": "approved",
+                "type": "bool"
+            }
+        ],
+        "name": "ApprovalForAll",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "previousOwner",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+            }
+        ],
+        "name": "OwnershipTransferred",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
                 "name": "from",
                 "type": "address"
             },
             {
                 "indexed": true,
+                "internalType": "address",
                 "name": "to",
                 "type": "address"
             },
             {
-                "indexed": false,
-                "name": "value",
+                "indexed": true,
+                "internalType": "uint256",
+                "name": "tokenId",
                 "type": "uint256"
             }
         ],
@@ -240,419 +99,400 @@
         "type": "event"
     },
     {
-        "anonymous": false,
-        "inputs": [
-            {
-                "indexed": true,
-                "name": "from",
-                "type": "address"
-            },
-            {
-                "indexed": true,
-                "name": "to",
-                "type": "address"
-            },
-            {
-                "indexed": false,
-                "name": "punkIndex",
-                "type": "uint256"
-            }
-        ],
-        "name": "PunkTransfer",
-        "type": "event"
-    },
-    {
-        "anonymous": false,
-        "inputs": [
-            {
-                "indexed": true,
-                "name": "punkIndex",
-                "type": "uint256"
-            },
-            {
-                "indexed": false,
-                "name": "minValue",
-                "type": "uint256"
-            },
-            {
-                "indexed": true,
-                "name": "toAddress",
-                "type": "address"
-            }
-        ],
-        "name": "PunkOffered",
-        "type": "event"
-    },
-    {
-        "anonymous": false,
-        "inputs": [
-            {
-                "indexed": true,
-                "name": "punkIndex",
-                "type": "uint256"
-            },
-            {
-                "indexed": false,
-                "name": "value",
-                "type": "uint256"
-            },
-            {
-                "indexed": true,
-                "name": "fromAddress",
-                "type": "address"
-            }
-        ],
-        "name": "PunkBidEntered",
-        "type": "event"
-    },
-    {
-        "anonymous": false,
-        "inputs": [
-            {
-                "indexed": true,
-                "name": "punkIndex",
-                "type": "uint256"
-            },
-            {
-                "indexed": false,
-                "name": "value",
-                "type": "uint256"
-            },
-            {
-                "indexed": true,
-                "name": "fromAddress",
-                "type": "address"
-            }
-        ],
-        "name": "PunkBidWithdrawn",
-        "type": "event"
-    },
-    {
-        "anonymous": false,
-        "inputs": [
-            {
-                "indexed": true,
-                "name": "punkIndex",
-                "type": "uint256"
-            },
-            {
-                "indexed": false,
-                "name": "value",
-                "type": "uint256"
-            },
-            {
-                "indexed": true,
-                "name": "fromAddress",
-                "type": "address"
-            },
-            {
-                "indexed": true,
-                "name": "toAddress",
-                "type": "address"
-            }
-        ],
-        "name": "PunkBought",
-        "type": "event"
-    },
-    {
-        "anonymous": false,
-        "inputs": [
-            {
-                "indexed": true,
-                "name": "punkIndex",
-                "type": "uint256"
-            }
-        ],
-        "name": "PunkNoLongerForSale",
-        "type": "event"
-    },
-    {
-        "constant": true,
         "inputs": [],
-        "name": "allPunksAssigned",
+        "name": "MAX_NFT_SUPPLY",
         "outputs": [
             {
+                "internalType": "uint256",
                 "name": "",
-                "type": "bool"
+                "type": "uint256"
             }
         ],
-        "payable": false,
         "stateMutability": "view",
         "type": "function"
     },
     {
-        "constant": true,
+        "inputs": [],
+        "name": "NFT_PRICE",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "NUM_GENESIS_NFTS",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
         "inputs": [
             {
-                "name": "",
+                "internalType": "address",
+                "name": "to",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "tokenId",
+                "type": "uint256"
+            }
+        ],
+        "name": "approve",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "owner",
                 "type": "address"
             }
         ],
         "name": "balanceOf",
         "outputs": [
             {
+                "internalType": "uint256",
                 "name": "",
                 "type": "uint256"
             }
         ],
-        "payable": false,
         "stateMutability": "view",
         "type": "function"
     },
     {
-        "constant": true,
-        "inputs": [],
-        "name": "claimPrice",
-        "outputs": [
+        "inputs": [
             {
-                "name": "",
+                "internalType": "uint256",
+                "name": "tokenId",
                 "type": "uint256"
             }
         ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "constant": true,
-        "inputs": [],
-        "name": "decimals",
+        "name": "getApproved",
         "outputs": [
             {
+                "internalType": "address",
                 "name": "",
-                "type": "uint8"
+                "type": "address"
             }
         ],
-        "payable": false,
         "stateMutability": "view",
         "type": "function"
     },
     {
-        "constant": true,
-        "inputs": [],
-        "name": "imageCommit",
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "owner",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "operator",
+                "type": "address"
+            }
+        ],
+        "name": "isApprovedForAll",
         "outputs": [
             {
+                "internalType": "bool",
                 "name": "",
-                "type": "string"
+                "type": "bool"
             }
         ],
-        "payable": false,
         "stateMutability": "view",
         "type": "function"
     },
     {
-        "constant": true,
+        "inputs": [],
+        "name": "mintGenesis",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "mintNFT",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
         "inputs": [],
         "name": "name",
         "outputs": [
             {
+                "internalType": "string",
                 "name": "",
                 "type": "string"
             }
         ],
-        "payable": false,
         "stateMutability": "view",
         "type": "function"
     },
     {
-        "constant": true,
-        "inputs": [],
-        "name": "nextPunkIndexToAssign",
-        "outputs": [
-            {
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "constant": true,
         "inputs": [],
         "name": "owner",
         "outputs": [
             {
+                "internalType": "address",
                 "name": "",
                 "type": "address"
             }
         ],
-        "payable": false,
         "stateMutability": "view",
         "type": "function"
     },
     {
-        "constant": true,
         "inputs": [
             {
+                "internalType": "uint256",
+                "name": "tokenId",
+                "type": "uint256"
+            }
+        ],
+        "name": "ownerOf",
+        "outputs": [
+            {
+                "internalType": "address",
                 "name": "",
                 "type": "address"
             }
         ],
-        "name": "pendingWithdrawals",
-        "outputs": [
-            {
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "payable": false,
         "stateMutability": "view",
         "type": "function"
     },
     {
-        "constant": true,
-        "inputs": [
-            {
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "name": "punkBids",
-        "outputs": [
-            {
-                "name": "hasBid",
-                "type": "bool"
-            },
-            {
-                "name": "punkIndex",
-                "type": "uint256"
-            },
-            {
-                "name": "bidder",
-                "type": "address"
-            },
-            {
-                "name": "value",
-                "type": "uint256"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "constant": true,
-        "inputs": [
-            {
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "name": "punkIndexToAddress",
-        "outputs": [
-            {
-                "name": "",
-                "type": "address"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "constant": true,
-        "inputs": [
-            {
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "name": "punksOfferedForSale",
-        "outputs": [
-            {
-                "name": "isForSale",
-                "type": "bool"
-            },
-            {
-                "name": "punkIndex",
-                "type": "uint256"
-            },
-            {
-                "name": "seller",
-                "type": "address"
-            },
-            {
-                "name": "minValue",
-                "type": "uint256"
-            },
-            {
-                "name": "onlySellTo",
-                "type": "address"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "constant": true,
         "inputs": [],
-        "name": "punksRemainingToAssign",
-        "outputs": [
+        "name": "renounceOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
             {
-                "name": "",
+                "internalType": "address",
+                "name": "from",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "to",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "tokenId",
                 "type": "uint256"
             }
         ],
-        "payable": false,
-        "stateMutability": "view",
+        "name": "safeTransferFrom",
+        "outputs": [],
+        "stateMutability": "nonpayable",
         "type": "function"
     },
     {
-        "constant": true,
-        "inputs": [],
-        "name": "standard",
-        "outputs": [
+        "inputs": [
             {
-                "name": "",
-                "type": "string"
+                "internalType": "address",
+                "name": "from",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "to",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "tokenId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "bytes",
+                "name": "_data",
+                "type": "bytes"
             }
         ],
-        "payable": false,
+        "name": "safeTransferFrom",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "operator",
+                "type": "address"
+            },
+            {
+                "internalType": "bool",
+                "name": "approved",
+                "type": "bool"
+            }
+        ],
+        "name": "setApprovalForAll",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "bytes4",
+                "name": "interfaceId",
+                "type": "bytes4"
+            }
+        ],
+        "name": "supportsInterface",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
         "stateMutability": "view",
         "type": "function"
     },
     {
-        "constant": true,
         "inputs": [],
         "name": "symbol",
         "outputs": [
             {
+                "internalType": "string",
                 "name": "",
                 "type": "string"
             }
         ],
-        "payable": false,
         "stateMutability": "view",
         "type": "function"
     },
     {
-        "constant": true,
-        "inputs": [],
-        "name": "totalSupply",
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "index",
+                "type": "uint256"
+            }
+        ],
+        "name": "tokenByIndex",
         "outputs": [
             {
+                "internalType": "uint256",
                 "name": "",
                 "type": "uint256"
             }
         ],
-        "payable": false,
         "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "owner",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "index",
+                "type": "uint256"
+            }
+        ],
+        "name": "tokenOfOwnerByIndex",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "totalSupply",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "from",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "to",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "tokenId",
+                "type": "uint256"
+            }
+        ],
+        "name": "transferFrom",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+            }
+        ],
+        "name": "transferOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "withdraw",
+        "outputs": [],
+        "stateMutability": "nonpayable",
         "type": "function"
     }
 ]
 
-const address = '0x0c7d60593e1D439663fBfF599c73AFC49a63e655';
+const address = '0xc47653d5Bd7428F880242729c85237Faf56932de';
 
 async function getCurIndex() {
     web3 = new Web3(web3.currentProvider);
 
     const contract = new web3.eth.Contract(abi, address);
 
-    var curIndex = await contract.methods.nextPunkIndexToAssign().call();
+    var curIndex = await contract.methods.totalSupply().call();
     curIndex = parseInt(curIndex) + 1;
 
     return curIndex;
@@ -692,7 +532,7 @@ async function bitViewer() {
         alert("Please input a valid BNB Bits ID!");
         return;
     }
-    var newUrl = "url('https://github.com/bnbbits/BNBBits/blob/main/bnbbits/BNBBIT-" + inputVal.toString().padStart(4, '0') + ".png?raw=true')"
+    var newUrl = "url('https://github.com/bnbbits/BNBBits_images/blob/master/BNBBIT-" + inputVal.toString().padStart(4, '0') + ".png?raw=true')"
     document.getElementById("sprite-image").style.background = newUrl;
     document.getElementById("sprite-image").style.backgroundPositionX = "0px";
     document.getElementById("sprite-image").style.backgroundPositionY = "-76px";
@@ -701,11 +541,11 @@ async function bitViewer() {
 
 function startProcess() {
     updatePic();
-    ETHAppDeploy.loadEthereum();
+    ETHAppDeploy.loadEthereum(true);
 }
 
 ETHAppDeploy = {
-    loadEthereum: async () => {
+    loadEthereum: async (pay) => {
         if (typeof window.ethereum !== 'undefined') {
             ETHAppDeploy.web3Provider = ethereum;
             const chainId = await ethereum.request({
@@ -716,7 +556,7 @@ ETHAppDeploy = {
                 alert("You are not on the Binance Smart Chain Network, please change Metamask to point to a BSC endpoint");
                 return;
             }
-            ETHAppDeploy.requestAccount(ethereum);
+            ETHAppDeploy.requestAccount(ethereum, pay);
         } else {
             alert(
                 "Not able to locate an Ethereum connection, please install a Metamask wallet"
@@ -724,13 +564,13 @@ ETHAppDeploy = {
         }
     },
 
-    requestAccount: async (ethereum) => {
+    requestAccount: async (ethereum, pay) => {
         ethereum
             .request({
                 method: 'eth_requestAccounts'
             })
             .then((resp) => {
-                console.log(resp[0])
+                console.log(resp[0]);
                 ETHAppDeploy.payNow(ethereum, resp[0]);
             })
             .catch((err) => {
@@ -746,7 +586,7 @@ ETHAppDeploy = {
                     from: from,
                     to: address,
                     value: '0x' + ((1 * 1000000000000000000).toString(16)),
-                    data: '0xbed2af80',
+                    data: '0x14f710fe',
                 }, ],
             })
             .then(async (txHash) => {
